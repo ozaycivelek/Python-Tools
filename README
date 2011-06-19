@@ -1,0 +1,23 @@
+A decorator for auto generating exception classes
+
+About
+---------------------------
+
+Today I found myself doing the following thing a lot;
+
+>>class MyClassException(Exception):
+>>	def __init__(self,message)
+>>		self._message = message
+>>		
+>>class MyClass(object):
+>>	....
+>>	....
+>>	....
+>>		raise MyClassException('Somthing terrible happened')
+		
+Well, this code -i hope- will let you do the following;
+
+>>@has_exception
+>>class MyClass(object):
+>>	....
+>>		raise MyClass.Exception('something terrible happened again')
